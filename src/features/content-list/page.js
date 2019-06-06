@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { Header, NewsItem, Container } from "../../ui";
 import { rootURL } from "../../api";
@@ -63,9 +64,19 @@ export class ContentList extends Component {
           </div>
 
           <div>
-            <button onClick={() => this.handlePagination("less")}>{"<"}</button>
+            <Link
+              to={`?page=${this.state.numPage - 1}`}
+              onClick={() => this.handlePagination("less")}
+            >
+              {"<"}
+            </Link>
             <span>{this.state.numPage}</span>
-            <button onClick={() => this.handlePagination("more")}>{">"}</button>
+            <Link
+              to={`?page=${this.state.numPage + 1}`}
+              onClick={() => this.handlePagination("more")}
+            >
+              {">"}
+            </Link>
           </div>
         </PageContainer>
       </div>
