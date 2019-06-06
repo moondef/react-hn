@@ -7,13 +7,15 @@ export const Navigation = () => (
   <>
     <Wrapper>
       {/* top, new, show, ask, jobs */}
-      <NavigationLink to="top">top</NavigationLink>
-      <NavigationLink to="newest">new</NavigationLink>
+      <NavigationLink exact to="/top">
+        top
+      </NavigationLink>
+      <NavigationLink to="/newest">new</NavigationLink>
       <NavigationLink to="/show">show</NavigationLink>
-      <NavigationLink to="ask">ask</NavigationLink>
-      <NavigationLink to="jobs">jobs</NavigationLink>
+      <NavigationLink to="/ask">ask</NavigationLink>
+      <NavigationLink to="/jobs">jobs</NavigationLink>
     </Wrapper>
-    <NavigationLink to="about">about</NavigationLink>
+    <NavigationLink to="/about">about</NavigationLink>
   </>
 )
 
