@@ -1,1 +1,1 @@
-// export { Smth } from './path'
+export { Header } from './header'
