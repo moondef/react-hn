@@ -16,12 +16,14 @@ export class ContentList extends Component {
   }
 
   componentDidMount() {
-    fetch(`${rootURL}/${this.props.page}?page=${this.state.numPage}`)
+    const num = new URL(window.location.href).searchParams.get('page')
+    fetch(`${rootURL}/${this.props.page}?page=${num || this.state.numPage}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           content: data,
-          lastItemID: data[data.length - 1].id
+          lastItemID: data[data.length - 1].id,
+          numPage: num || 1
         })
       })
   }
