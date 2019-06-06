@@ -42,9 +42,7 @@ export class ContentItem extends Component {
             Comments:
             {this.state.comments.map((e, i) => (
               <Comment {...e} comments={e.comments} key={i} />
-            ))
-            // <Comment {...this.state.comments[0]} />
-            }
+            ))}
           </Comments>
         </PageContainer>
       </div>

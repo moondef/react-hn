@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import { ContentList } from './features/content-list'
 import { ContentItem } from './features/content-item'
+import { UserProfile } from './features/user-profile'
 import { NotFoundPage } from './features/not-found'
 
 // const pages = ['top', 'newest', 'show', 'ask', 'jobs']
@@ -23,6 +24,7 @@ export const Routes = () => (
       <Route path="/jobs" component={JobsPage} />
 
       <Route path="/item/:id" component={ContentItem} />
+      <Route path="/user/:id" component={UserProfile} />
 
       <Route path="*" component={NotFoundPage} />
     </Switch>

@@ -18,8 +18,7 @@ export const NewsItem = ({
     <div>
       <a href={url}>{title}</a>
       <Info>
-        {points} points by <Link to={`/user?id=${user}`}>{user}</Link>{' '}
-        {time_ago}{' '}
+        {points} points by <Link to={`/user/${user}`}>{user}</Link> {time_ago}{' '}
         {!isFullInfo && (
           <span>
             | <Link to={`/item/${id}`}>{comments_count} comments</Link>
