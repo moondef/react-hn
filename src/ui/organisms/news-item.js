@@ -37,7 +37,7 @@ const NewsItemWrapper = styled.div`
 `
 
 const Index = styled.div`
-  width: 50px;
+  padding-right: 10px;
   font-size: 20px;
 `
 
