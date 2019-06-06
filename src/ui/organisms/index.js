@@ -1,0 +1,1 @@
+// export { Smth } from './path'
