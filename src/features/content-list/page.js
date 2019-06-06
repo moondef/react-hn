@@ -20,11 +20,13 @@ export class ContentList extends Component {
     fetch(`${rootURL}/${this.props.page}?page=${num || this.state.numPage}`)
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          content: data,
-          lastItemID: data[data.length - 1].id,
-          numPage: num || 1
-        })
+        if (data.length) {
+          this.setState({
+            content: data,
+            lastItemID: data[data.length - 1].id,
+            numPage: num || 1
+          })
+        }
       })
   }
 
