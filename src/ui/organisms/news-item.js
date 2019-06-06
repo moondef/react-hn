@@ -12,11 +12,11 @@ export const NewsItem = ({
   url
 }) => (
   <div>
-    <span>{i}</span>
+    <span>{i}. </span>
     <a href={url}>{title}</a>
     <p>
       {points} points by <Link to={`/user?id=${user}`}>{user}</Link> {time_ago}{' '}
-      | <Link to={`/item?id=${id}`}>{comments_count}</Link>
+      | <Link to={`/item?id=${id}`}>{comments_count} comments</Link>
     </p>
   </div>
 )
