@@ -1,16 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+// import { injectGlobal } from 'styled-components'
 
-import "./styles.css";
+import { Routes } from './routes'
+// import { globalStyles } from './ui/theme'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
+// injectGlobal(globalStyles)
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const App = () => (
+  <Router>
+    <Routes />
+  </Router>
+)
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
