@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-import { Header, NewsItem, Container } from "../../ui";
-import { rootURL } from "../../api";
+import { Header, NewsItem, Container } from '../../ui'
+import { rootURL } from '../../api'
 
 export class ContentList extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       content: [],
       lastItemID: 0,
       numPage: 1
-    };
+    }
   }
 
   componentDidMount() {
@@ -22,27 +22,40 @@ export class ContentList extends Component {
         this.setState({
           content: data,
           lastItemID: data[data.length - 1].id
-        });
-      });
+        })
+      })
   }
 
   handlePagination = dir => {
     // // dir can be 'less' or 'more'
-    if (dir === "more") {
+    if (dir === 'more') {
       fetch(`${rootURL}/${this.props.page}?page=${this.state.numPage + 1}`)
         .then(res => res.json())
         .then(data => {
-          const dataLastItemID = data[data.length - 1].id;
+          const dataLastItemID = data[data.length - 1].id
           if (this.state.lastItemID !== dataLastItemID) {
             this.setState(state => ({
               content: data,
               lastItemID: dataLastItemID,
               numPage: state.numPage + 1
-            }));
+            }))
           }
-        });
+        })
+    } else {
+      if (this.state.numPage > 1) {
+        fetch(`${rootURL}/${this.props.page}?page=${this.state.numPage + 1}`)
+          .then(res => res.json())
+          .then(data => {
+            const dataLastItemID = data[data.length - 1].id
+            this.setState(state => ({
+              content: data,
+              lastItemID: dataLastItemID,
+              numPage: state.numPage - 1
+            }))
+          })
+      }
     }
-  };
+  }
 
   render() {
     return (
@@ -66,25 +79,25 @@ export class ContentList extends Component {
           <div>
             <Link
               to={`?page=${this.state.numPage - 1}`}
-              onClick={() => this.handlePagination("less")}
+              onClick={() => this.handlePagination('less')}
             >
-              {"<"}
+              {'<'}
             </Link>
             <span>{this.state.numPage}</span>
             <Link
               to={`?page=${this.state.numPage + 1}`}
-              onClick={() => this.handlePagination("more")}
+              onClick={() => this.handlePagination('more')}
             >
-              {">"}
+              {'>'}
             </Link>
           </div>
         </PageContainer>
       </div>
-    );
+    )
   }
 }
 
 const PageContainer = styled(Container)`
   flex-direction: column;
-  padding-top: 70px;
-`;
+  padding-top: 50px;
+`
