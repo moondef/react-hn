@@ -10,18 +10,21 @@ export const NewsItem = ({
   user,
   time_ago,
   comments_count,
-  url
+  url,
+  isFullInfo
 }) => (
   <NewsItemWrapper>
-    <Index>
-      <span>{i}. </span>
-    </Index>
+    <Index>{i && <span>{i}. </span>}</Index>
     <div>
       <a href={url}>{title}</a>
       <Info>
         {points} points by <Link to={`/user?id=${user}`}>{user}</Link>{' '}
-        {time_ago} |{' '}
-        <Link to={`/item?id=${id}`}>{comments_count} comments</Link>
+        {time_ago}{' '}
+        {!isFullInfo && (
+          <span>
+            | <Link to={`/item/${id}`}>{comments_count} comments</Link>
+          </span>
+        )}
       </Info>
     </div>
   </NewsItemWrapper>

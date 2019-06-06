@@ -1,15 +1,16 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
-import { ContentList } from "./features/content-list";
-import { NotFoundPage } from "./features/not-found";
+import { ContentList } from './features/content-list'
+import { ContentItem } from './features/content-item'
+import { NotFoundPage } from './features/not-found'
 
 // const pages = ['top', 'newest', 'show', 'ask', 'jobs']
-const TopPage = () => <ContentList page="news" />;
-const NewPage = () => <ContentList page="newest" />;
-const ShowPage = () => <ContentList page="show" />;
-const AskPage = () => <ContentList page="ask" />;
-const JobsPage = () => <ContentList page="jobs" />;
+const TopPage = () => <ContentList page="news" />
+const NewPage = () => <ContentList page="newest" />
+const ShowPage = () => <ContentList page="show" />
+const AskPage = () => <ContentList page="ask" />
+const JobsPage = () => <ContentList page="jobs" />
 
 export const Routes = () => (
   <>
@@ -21,7 +22,9 @@ export const Routes = () => (
       <Route path="/ask" component={AskPage} />
       <Route path="/jobs" component={JobsPage} />
 
+      <Route path="/item/:id" component={ContentItem} />
+
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </>
-);
+)
