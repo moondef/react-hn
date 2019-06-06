@@ -47,7 +47,7 @@ export class ContentList extends Component {
         })
     } else {
       if (this.state.numPage > 1) {
-        fetch(`${rootURL}/${this.props.page}?page=${this.state.numPage + 1}`)
+        fetch(`${rootURL}/${this.props.page}?page=${this.state.numPage - 1}`)
           .then(res => res.json())
           .then(data => {
             const dataLastItemID = data[data.length - 1].id
