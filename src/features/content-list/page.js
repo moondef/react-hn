@@ -36,13 +36,15 @@ export class ContentList extends Component {
       fetch(`${rootURL}/${this.props.page}?page=${this.state.numPage + 1}`)
         .then(res => res.json())
         .then(data => {
-          const dataLastItemID = data[data.length - 1].id
-          if (this.state.lastItemID !== dataLastItemID) {
-            this.setState(state => ({
-              content: data,
-              lastItemID: dataLastItemID,
-              numPage: state.numPage + 1
-            }))
+          const dataLastItem = data[data.length - 1]
+          if (dataLastItem) {
+            if (this.state.lastItemID !== dataLastItem.id) {
+              this.setState(state => ({
+                content: data,
+                lastItemID: dataLastItem.id,
+                numPage: state.numPage + 1
+              }))
+            }
           }
         })
     } else {
