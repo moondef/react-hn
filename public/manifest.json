@@ -1,18 +1,6 @@
 {
   "short_name": "HN",
   "name": "react-hn",
-  "icons": [
-    {
-      "src": "/ui/atoms/react-512.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/ui/atoms/react-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
   "start_url": "/top/?source=pwa",
   "background_color": "#fff",
   "display": "standalone",
