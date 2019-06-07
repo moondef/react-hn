@@ -51,7 +51,7 @@ const PageContainer = styled(Container)`
   font-size: 0.9rem;
 `
 const About = styled.span`
-  word-break: break-all;
+  word-break: break-word;
 
   code {
     white-space: normal;

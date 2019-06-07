@@ -24,7 +24,7 @@ const CommentWrapper = styled.div`
 `
 
 const CommentText = styled.p`
-  word-break: break-all;
+  word-break: break-word;
   code {
     white-space: normal;
   }
