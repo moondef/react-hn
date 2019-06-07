@@ -52,4 +52,8 @@ const PageContainer = styled(Container)`
 `
 const About = styled.span`
   word-break: break-all;
+
+  code {
+    white-space: normal;
+  }
 `
