@@ -36,7 +36,7 @@ export class UserProfile extends Component {
           <p>Karma: {this.state.karma}</p>
           <p>
             About:{' '}
-            <span dangerouslySetInnerHTML={{ __html: this.state.about }} />
+            <About dangerouslySetInnerHTML={{ __html: this.state.about }} />
             {!this.state.about && <span>None</span>}
           </p>
         </PageContainer>
@@ -49,4 +49,7 @@ const PageContainer = styled(Container)`
   padding-top: 50px;
   flex-direction: column;
   font-size: 0.9rem;
+`
+const About = styled.span`
+  word-break: break-all;
 `
