@@ -8,7 +8,7 @@ export const Comment = ({ level, user, time_ago, content, comments }) => (
       <p>
         <Link to={`/user/${user}`}>{user}</Link> {time_ago}
       </p>
-      <p dangerouslySetInnerHTML={{ __html: content }} />
+      <CommentText dangerouslySetInnerHTML={{ __html: content }} />
     </CommentWrapper>
 
     {comments &&
@@ -21,4 +21,8 @@ const CommentWrapper = styled.div`
   padding-left: ${props => props.level * 15}px;
   padding-top: 7px;
   padding-bottom: 7px;
+`
+
+const CommentText = styled.p`
+  word-break: break-all;
 `
