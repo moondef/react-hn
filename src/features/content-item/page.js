@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { rootURL } from '../../api'
@@ -35,6 +36,9 @@ export class ContentItem extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>{this.state.title}</title>
+        </Helmet>
         <Header />
         <PageContainer>
           <NewsItem isFullInfo {...this.state} />

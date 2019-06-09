@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Header, Container } from '../../ui'
@@ -29,6 +30,10 @@ export class UserProfile extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>{this.props.match.params.id}</title>
+        </Helmet>
+
         <Header />
         <PageContainer>
           <h2>{this.props.match.params.id}</h2>

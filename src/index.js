@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import { Routes } from './routes'
 
@@ -8,6 +9,9 @@ import './index.css'
 
 const App = () => (
   <Router>
+    <Helmet>
+      <title>React HN</title>
+    </Helmet>
     <Routes />
   </Router>
 )

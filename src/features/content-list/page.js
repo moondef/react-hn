@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 import { Header, NewsItem, Container } from '../../ui'
 import { rootURL } from '../../api'
