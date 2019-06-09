@@ -16,7 +16,7 @@ export class ContentList extends Component {
   }
 
   componentDidMount() {
-    const num = new URL(window.location.href).searchParams.get('page')
+    const num = Number(new URL(window.location.href).searchParams.get('page'))
     fetch(`${rootURL}/${this.props.page}?page=${num || this.state.numPage}`)
       .then(res => res.json())
       .then(data => {
