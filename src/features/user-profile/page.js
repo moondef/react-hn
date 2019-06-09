@@ -31,7 +31,7 @@ export class UserProfile extends Component {
     return (
       <div>
         <Helmet>
-          <title>{this.props.match.params.id}</title>
+          <title>Profile: {this.props.match.params.id} | React HN</title>
         </Helmet>
 
         <Header />

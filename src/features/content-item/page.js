@@ -37,7 +37,7 @@ export class ContentItem extends Component {
     return (
       <div>
         <Helmet>
-          <title>{this.state.title}</title>
+          <title>{this.state.title} | React HN</title>
         </Helmet>
         <Header />
         <PageContainer>
