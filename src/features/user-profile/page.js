@@ -1,53 +1,47 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Header, Container } from '../../ui'
 import { rootURL } from '../../api'
 
-export class UserProfile extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      created: '10 years ago',
-      karma: 1,
-      about: ''
-    }
+export const UserProfile = ({
+  match: {
+    params: { id }
+  }
+}) => {
+  const initData = {
+    created: '10 years ago',
+    karma: 1,
+    about: ''
   }
 
-  componentDidMount() {
-    fetch(`${rootURL}/user/${this.props.match.params.id}`)
+  const [data, setData] = useState(initData)
+
+  useEffect(() => {
+    fetch(`${rootURL}/user/${id}`)
       .then(res => res.json())
-      .then(data =>
-        this.setState({
-          created: data.created,
-          karma: data.karma,
-          about: data.about
-        })
-      )
-  }
+      .then(data => setData(data))
+  }, [id])
 
-  render() {
-    return (
-      <div>
-        <Helmet>
-          <title>Profile: {this.props.match.params.id} | React HN</title>
-        </Helmet>
+  return (
+    <div>
+      <Helmet>
+        <title>Profile: {id} | React HN</title>
+      </Helmet>
 
-        <Header />
-        <PageContainer>
-          <h2>{this.props.match.params.id}</h2>
-          <p>Created {this.state.created}</p>
-          <p>Karma: {this.state.karma}</p>
-          <p>
-            About:{' '}
-            <About dangerouslySetInnerHTML={{ __html: this.state.about }} />
-            {!this.state.about && <span>None</span>}
-          </p>
-        </PageContainer>
-      </div>
-    )
-  }
+      <Header />
+      <PageContainer>
+        <h2>{id}</h2>
+        <p>Created {data.created}</p>
+        <p>Karma: {data.karma}</p>
+        <p>
+          About: <About dangerouslySetInnerHTML={{ __html: data.about }} />
+          {!data.about && <span>None</span>}
+        </p>
+      </PageContainer>
+    </div>
+  )
 }
 
 const PageContainer = styled(Container)`
