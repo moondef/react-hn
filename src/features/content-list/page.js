@@ -24,7 +24,7 @@ export const ContentList = ({ page }) => {
   }, [page, numPage])
 
   const handlePagination = dir => {
-    // // dir can be 'less' or 'more'
+    // // dir can be 'prev' or 'next'
     if (dir === 'next') {
       fetch(`${rootURL}/${page}?page=${numPage + 1}`)
         .then(res => res.json())
