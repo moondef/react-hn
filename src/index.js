@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
+import * as serviceWorker from './serviceWorker'
+
 import { Routes } from './routes'
 
 import './index.css'
@@ -17,4 +19,7 @@ const App = () => (
 )
 
 const rootElement = document.getElementById('root')
+
 ReactDOM.render(<App />, rootElement)
+
+serviceWorker.register();
