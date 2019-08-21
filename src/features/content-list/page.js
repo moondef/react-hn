@@ -10,7 +10,7 @@ export const ContentList = ({ page }) => {
     Number(new URL(window.location.href).searchParams.get('page')) || 1
   const [content, setContent] = useState([])
   const [lastItemID, setLastItemID] = useState(0)
-  const [numPage, setNumPage] = useState(initPage || 1)
+  const [numPage, setNumPage] = useState(initPage)
 
   useEffect(() => {
     fetch(`${rootURL}/${page}?page=${numPage}`)
